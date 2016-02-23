@@ -1,0 +1,181 @@
+@import url('http://fonts.googleapis.com/css?family=Sacramento');
+/**
+ *
+ * main
+ *
+ */
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+
+  display: flex;
+  flex-flow: column;
+  background: whitesmoke;
+}
+
+a { color: #00f; }
+a:hover { text-decoration: none; }
+
+header {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+}
+header h1, p { margin: 0; }
+header p { margin-left: 1em; }
+
+footer{
+  text-align: center;
+  font-family: Sacramento;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.title{
+  font-family: Sacramento;
+  font-size: 42px;
+  margin-left: 45%
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-flow: row;
+  margin: 0 1em 1em 1em;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  overflow: auto;
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+  min-width: 200px;
+}
+
+.content p { margin: 1em; }
+
+.sidebar {
+  width: 300px;
+  padding: 1em;
+  min-width: 100px;
+}
+
+/* Handle */
+.resize-handle.left, .resize-handle.right {
+  width: 4px;
+  background: #ccc;
+  cursor: ew-resize;
+}
+
+.resize-handle.top, .resize-handle.bottom {
+  height: 4px;
+  background: #ccc;
+  cursor: ns-resize;
+}
+
+.resize-handle.left:hover, .resize-handle.right:hover,
+.resize-handle.top:hover, .resize-handle.bottom:hover {
+  background: #aaa;
+}
+
+html.handle-dragging * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html.handle-dragging.vertical * { cursor: ew-resize; }
+html.handle-dragging.horizontal * { cursor: ns-resize; }
+html.handle-dragging iframe { pointer-events: none; }
+
+/**
+ *
+ * gallery
+ *
+ */
+
+.demonstration {
+  font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 300;
+  padding: 20px;
+  float: left;
+  width: 100%;
+}
+
+.item {
+  background: white;
+  float: left;
+  padding: 15px;
+  transition: all 200ms ease;
+  width: 250px;
+  min-height: 340px;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+
+.item-grid {
+  padding: 5px;
+}
+
+h2 {
+  font-size: 20px;
+  float: left;
+}
+
+h4 {
+  font-family: Georgia;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 1.2em;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  font-size: 14px;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/**
+ *
+ * view
+ *
+ */
+
+
+.right {
+  float: right;
+}
+
+.error {
+  background: url('../inc/image/toastplage.png')  no-repeat center center fixed;
+  height: 600px;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(12px);
+  -o-filter: blur(12px);
+  -ms-filter: blur(12px);
+  filter: blur(12px);
+}
+
+.video {
+  padding-left: 20%;
+  max-width: 80%;
+  max-height: 80%;
+}
