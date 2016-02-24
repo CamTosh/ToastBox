@@ -21,15 +21,11 @@
 
 		$video = urldecode($_GET['film']);
 
-		if(isset($_POST['submit'])) {
-
-			if(empty($_POST['choixPlayer'])) {
-				$choix = 1;
-			}
+		if(empty($_POST['choixPlayer'])) {
+			html($video);
 		}
-		$choix;
-		$choix = $_POST['choixPlayer'];
 
+		$choix = $_POST['choixPlayer'];
 		choice($choix, $video);
 	}
 
