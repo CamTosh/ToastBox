@@ -11,14 +11,16 @@ Chrome a bloqué les players comme Silverlight, VLC ou encore Divx en septembre 
 # L'application 
 
 
-> la page d'acceuil avec vos films/vidéos/séries
+## la page d'acceuil avec vos films/vidéos/séries
 
 ![1](demo/1.png "la page d'acceuil avec vos films/vidéos/séries")
 
-> la page de lecture vidéo
+
+## la page de lecture vidéo
 
 ![2](demo/2.png "la page de lecture vidéo")
 
-> Le choix du lecteur vidéo ainsi que le bouton de téléchargement
+
+## Le choix du lecteur vidéo ainsi que le bouton de téléchargement
 
 ![3](demo/3.png "Le choix du lecteur vidéo ainsi que le bouton de téléchargement")
