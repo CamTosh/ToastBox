@@ -1,4 +1,3 @@
-		</div>	
       </section>
     </div>	
     </main>

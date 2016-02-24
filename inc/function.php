@@ -9,6 +9,7 @@ require 'imdb/imdb.class.php';
  */
 
 function vignette($file_name) {
+
 	$oIMDB = new IMDB($file_name);
 
 	if ($oIMDB->isReady) {
@@ -31,17 +32,23 @@ function vignette($file_name) {
  */
 
 function html($video) {
-	echo '<video class="video" src="files/'.$video.'" controls/>'; //type="'.$mime_type.'"
+
+	$player = '<video class="video" src="files/'.$video.'" controls/>'; //type="'.$mime_type.'"
+
+return $player;
 }
 
 function vlc($video) {
-	echo '<object class="video" classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab">
+
+	$player = '<object class="video" classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab">
 		        <embed type="application/x-vlc-plugin" version="VideoLAN.VLCPlugin.2" pluginspage="http://www.videolan.org" target="files/'.$video. '" name="vlc" />
 		    </object>';
+return $player;
 }
 
 function divx($video) {
-	echo '<object class="video" classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616" codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab">
+
+	$player = '<object class="video" classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616" codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab">
 			    <param name="custommode" value="none" />
 			    <param name="previewImage" value="" />
 			    <param name="autoPlay" value="false" />
@@ -53,20 +60,62 @@ function divx($video) {
 			        pluginspage="http://go.divx.com/plugin/download/">
 			    </embed>
 			</object>';
+return $player;
 }
 
+/**
+ *
+ * choix du player
+ *
+ */
+
+
 function choice($choix, $video) {
+
 	if ($choix == '1'){
 		//$mime_type = mime_content_type('files/'.$video);
 		//html($video, $mime_type);
-		html($video);
+		return html($video);
 	}
 
 	if ($choix == '2'){
-		vlc($video);
+		return vlc($video);
 	}
 
 	if ($choix == '3'){
-		divx($video);
+		return divx($video);
 	}
+}
+
+/**
+ *
+ * download button
+ *
+ */
+
+function size($video) {
+
+    $bytes = sprintf('%u', filesize('files/'.$video.''));
+
+    if ($bytes > 0) {
+
+        $unit = intval(log($bytes, 1024));
+        $units = array('B', 'KB', 'MB', 'GB');
+
+        if (array_key_exists($unit, $units) === true) {
+
+            return sprintf('%d %s', $bytes / (1024 ** $unit), $units[$unit]);
+        }
+    } 
+
+return $bytes;
+}
+
+function download($video) {
+
+	$size = size($video);
+
+	$link = '<a download href="files/'.$video.'" data-filesize="'.$size.'" class="download-button">'.$video.'</a>';
+
+return $link;
 }
