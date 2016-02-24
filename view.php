@@ -6,6 +6,7 @@
 	if (isset($_GET['film']) && !empty($_GET['film']) && strlen($_GET['film']) > 4) {
 
 		$video = urldecode($_GET['film']);
+		
 		echo '<div class="right">
 				<form name="player" method="POST">
 				        <select name="choixPlayer">
@@ -24,9 +25,8 @@
 		}
 
 		$choix = $_POST['choixPlayer'];
-		echo choice($choix, $video);
 
-		
+		echo choice($choix, $video);		
 	}
 
 	if (!isset($_GET['film']) && empty($_GET['film']) || strlen($_GET['film']) < 5) {

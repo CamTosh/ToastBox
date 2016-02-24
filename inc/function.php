@@ -14,10 +14,13 @@ function vignette($file_name) {
 
 	if ($oIMDB->isReady) {
 	    echo '<a href="view.php?film='.urlencode($file_name).'"><img src="inc/imdb/' . $oIMDB->getPoster('small', true) . '"></a> <h4>About the movie</h4>'; 
+	    
 	    if ($oIMDB->getSeasons() != "n/A") {
 	  		echo '<p>' . $oIMDB->getSeasons() . '</p>';
 		}
+
 		echo '<p>' . $oIMDB->getPlot() . '</p>';
+
 	} else {
 	  	echo '<p>Movie not found!</p>';
 	    echo '<a href="view.php?film='.urlencode($file_name).'"><img src="inc/imdb/posters/not-found.jpg">';
