@@ -3,7 +3,7 @@
 	include 'inc/function.php';
 	include 'inc/config.php';
 
-	foreach($file_type as $ext) {
+	foreach($video_type as $ext) {
 
 	   foreach(glob('files/*.'.$ext) as $video) {
 
