@@ -27,11 +27,10 @@
 				$choix = 1;
 			}
 		}
+		$choix;
 		$choix = $_POST['choixPlayer'];
 
-		echo '<div class="playa">';
 		choice($choix, $video);
-		echo '</div>';
 	}
 
 	if (!isset($_GET['film']) && empty($_GET['film']) || strlen($_GET['film']) < 5) {
@@ -39,7 +38,7 @@
 					<h4>404 Toast / Media Not Found</h4>
 					<h4>Go to the <a href="index.php"><u>home page</u></a>.</h4>
 				</center>
-				<div class="error"></div>';
+				<div class="playa"></div>';
 		echo '<style type="text/css">
 				.right{
 					display: none;
