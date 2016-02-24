@@ -30,14 +30,13 @@ function vignette($file_name) {
  *
  */
 
-function html($video, $mime_type) {
+function html($video) {
 	echo '<video class="video" src="files/'.$video.'" controls/>'; //type="'.$mime_type.'"
-	finfo_close($mime_type);
 }
 
 function vlc($video) {
-	echo '<object class="video" classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab" id="vlc">
-		        <embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" target="files/'.$video. '" name="vlc" />
+	echo '<object class="video" classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab">
+		        <embed type="application/x-vlc-plugin" version="VideoLAN.VLCPlugin.2" pluginspage="http://www.videolan.org" target="files/'.$video. '" name="vlc" />
 		    </object>';
 }
 
