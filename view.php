@@ -15,12 +15,18 @@
 							<option value="2">vlc</option>
 							<option value="3">divx</option>
 						</select>
-						<input type="submit" name="Submit" value="Submit" />
+						<button class="btn btn--fn" type="submit" name="Submit">Submit</button> 
+						<button class="btn btn--negative" name="Delete">Delete File</button> 
 				</form>
 				'.download($video).'
 			</div>';
 
-		if(empty($_POST['choixPlayer'])) {
+		if (isset($_POST['Delete'])) { 
+			unlink('files/'.$video.'');
+			header("Location: index.php");
+		}
+
+		if( empty($_POST['choixPlayer'])) {
 			echo html($video);
 		}
 
