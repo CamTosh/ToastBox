@@ -6,4 +6,13 @@ Il est gratuit pour un usage personnel (non commercial) et pour un usage à la r
 
 > Le projet est encore en cours de développement
 
-Chrome a bloqué les players comme Silverlight, VLC ou encore Divx en septembre 2015. Le HTML ne supporte pas tout les formats mais je vais faire une conversion via FFMPEG.
+Chrome a bloqué les players comme Silverlight, VLC ou encore Divx en septembre 2015. Le HTML ne supporte pas tout les formats. Je ferai surement une conversion via FFMPEG.
+
+# L'application 
+
+
+![1](demo/1.png "la page d'acceuil avec vos films/vidéos/séries")
+
+![2](demo/2.png "la page de lecture vidéo")
+
+![3](demo/3.png "Le choix du lecteur vidéo ainsi que le bouton de téléchargement")
