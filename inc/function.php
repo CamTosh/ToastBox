@@ -30,9 +30,9 @@ function vignette($file_name) {
  *
  */
 
-
-function html($video) {
-	echo '<video class="video" src="files/'.$video.'" controls/>';
+function html($video, $mime_type) {
+	echo '<video class="video" src="files/'.$video.'" controls/>'; //type="'.$mime_type.'"
+	finfo_close($mime_type);
 }
 
 function vlc($video) {
@@ -58,6 +58,8 @@ function divx($video) {
 
 function choice($choix, $video) {
 	if ($choix == '1'){
+		//$mime_type = mime_content_type('files/'.$video);
+		//html($video, $mime_type);
 		html($video);
 	}
 
