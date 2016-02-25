@@ -3,18 +3,7 @@
 	include 'inc/function.php';
 	include 'inc/config.php';
 
-	foreach($video_type as $ext) {
+	scan($path, $video_type);
 
-	   foreach(glob('files/*.'.$ext) as $video) {
-
-	   	$file_name = basename($video);
-
-		    echo '<div class="item-grid">';
-		    	echo '<article class="item">';
-		    		vignette($file_name);    
-				echo '</article>';
-	    }
-	}
 	include 'inc/footer.php';
-	
-?> 
+?>

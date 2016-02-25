@@ -4,6 +4,46 @@ require 'imdb/imdb.class.php';
 
 /**
  *
+ * Scan folder
+ *
+ */
+
+function scan($path, $video_type) {
+
+	echo '<div class="item-grid">';
+
+	foreach($video_type as $ext) {
+		
+	   foreach(glob(''.$path.'/*.'.$ext.'') as $video) {
+
+	   		$file_name = basename($video);
+
+		    echo '<article class="item">';
+		    vignette($file_name);    
+			echo '</article>';
+	    }
+	    foreach(glob(''.$path.'/*/*.'.$ext.'') as $video) {
+
+	   		$file_name = basename($video);
+		    
+		    echo '<article class="item">';
+		    vignette($file_name);    
+			echo '</article>';
+	    }
+	    foreach(glob(''.$path.'/*/*/*.'.$ext.'') as $video) {
+
+	   		$file_name = basename($video);
+		    
+		    echo '<article class="item">';
+		    vignette($file_name);    
+			echo '</article>';
+	    }
+	}
+	echo '</div>';
+}
+
+/**
+ *
  * Imdb
  *
  */
@@ -75,17 +115,17 @@ return $player;
 
 function choice($choix, $video) {
 
-	if ($choix == '1'){
+	if ($choix == '1') {
 		//$mime_type = mime_content_type('files/'.$video);
 		//html($video, $mime_type);
 		return html($video);
 	}
 
-	if ($choix == '2'){
+	if ($choix == '2') {
 		return vlc($video);
 	}
 
-	if ($choix == '3'){
+	if ($choix == '3') {
 		return divx($video);
 	}
 }
