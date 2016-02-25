@@ -25,6 +25,7 @@
 			unlink('files/'.$video.'');
 			header("Location: index.php");
 		}
+		desc($video);
 
 		if( empty($_POST['choixPlayer'])) {
 			echo html($video);
@@ -32,7 +33,8 @@
 
 		$choix = $_POST['choixPlayer'];
 
-		echo choice($choix, $video);		
+		echo choice($choix, $video);
+			
 	}
 
 	if (!isset($_GET['film']) && empty($_GET['film']) || strlen($_GET['film']) < 5) {

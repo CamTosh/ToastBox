@@ -25,10 +25,8 @@ header {
   display: flex;
   align-items: center;
 }
-header h1, p { margin: 0; }
-header p { margin-left: 1em; }
 
-footer{
+ footer{
   text-align: center;
   font-family: Sacramento;
   font-size: 28px;
@@ -56,8 +54,6 @@ main {
   overflow: auto;
   min-width: 200px;
 }
-
-.content p { margin: 1em; }
 
 .sidebar {
   width: 300px;
@@ -195,13 +191,13 @@ a {
   color: black;
 }
 
-p {
-  font-size: 14px;
-}
-
 img {
   width: 100%;
   margin-bottom: 15px;
+}
+
+.rated {
+  color: #E4BB24;
 }
 
 /**
@@ -226,6 +222,14 @@ img {
   margin-left: 10%;
   max-width: 80%;
   max-height: 80%;
+}
+
+.description {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 /**
@@ -272,7 +276,6 @@ img {
  * responsive
  *
  */
-
 
 @media only screen and (max-width: 768px) {
   .title {

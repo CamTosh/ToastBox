@@ -53,13 +53,13 @@ function vignette($file_name) {
 	$oIMDB = new IMDB($file_name);
 
 	if ($oIMDB->isReady) {
-	    echo '<a href="view.php?film='.urlencode($file_name).'"><img src="inc/imdb/' . $oIMDB->getPoster('small', true) . '"></a> <h4>About the movie</h4>'; 
+	    echo '<a href="view.php?film='.urlencode($file_name).'"><img src="inc/imdb/'.$oIMDB->getPoster('small', true).'"></a><h4>About <a href="' . $oIMDB->getUrl() . '" target="_blank"><span class="rated">('.$oIMDB->getRating().'/10)</span></a></h4>'; 
 	    
 	    if ($oIMDB->getSeasons() != "n/A") {
-	  		echo '<p>' . $oIMDB->getSeasons() . '</p>';
+	  		echo '<p>'.$oIMDB->getSeasons().'</p>';
 		}
 
-		echo '<p>' . $oIMDB->getPlot() . '</p>';
+		echo '<p>'.$oIMDB->getPlot().'</p>';
 
 	} else {
 	  	echo '<p>Movie not found!</p>';
@@ -106,6 +106,13 @@ function divx($video) {
 return $player;
 }
 
+/*----------  Description  ----------*/
+
+function desc($video) {
+
+	$oIMDB = new IMDB($video);
+	echo '<div class="description"><h1>About '.$video.' ('.$oIMDB->getYear().')</h1>'.$oIMDB->getPlot().'</div>';
+}
 /**
  *
  * choix du player
