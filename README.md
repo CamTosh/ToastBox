@@ -21,7 +21,7 @@ Chrome a bloqué les players comme Silverlight, VLC ou encore Divx en septembre 
 
 ## Le choix du lecteur vidéo ainsi que les bouton de téléchargement et de suppression du fichier
 
-![](demo/4.png "Les nouveaux boutons de téléchargement et suppression")
+![](demo/3.png "Les nouveaux boutons de téléchargement et suppression")
 
 
 ## Features
