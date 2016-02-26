@@ -33,7 +33,7 @@ Chrome a bloqué les players comme Silverlight, VLC ou encore Divx en septembre 
 * Lire les vidéos depuis son navigateur 
 * Pouvoir télécharger le fichier
 * Pouvoir supprimer le fichier
-* Pouvoir convertir une vidéo au format mp4 (codec audio : AAC, codec vidéo : h264) à l'aide de FFMPEG
+* Pouvoir convertir une vidéo au format mp4 (codec audio : AAC, codec vidéo : h264) à l'aide de FFMPEG 
 * Avoir différentes informations sur les films / séries 
 
 # Comment l'installer
