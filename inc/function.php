@@ -76,7 +76,7 @@ function vignette($file_name) {
 
 function html($video) {
 
-	$player = '<video class="video" src="files/'.$video.'" controls/>'; //type="'.$mime_type.'"
+	$player = '<video class="video" src="files/'.$video.'" controls></video>'; //type="'.$mime_type.'"
 
 return $player;
 }
@@ -113,12 +113,12 @@ function desc($video) {
 	$oIMDB = new IMDB($video);
 	echo '<div class="description"><h1>About '.$video.' ('.$oIMDB->getYear().')</h1>'.$oIMDB->getPlot().'</div>';
 }
+
 /**
  *
  * choix du player
  *
  */
-
 
 function choice($choix, $video) {
 
@@ -168,4 +168,22 @@ function download($video) {
 	$link = '<a download href="files/'.$video.'" data-filesize="'.$size.'" class="download-button">'.$video.'</a>';
 
 return $link;
+}
+
+/**
+ *
+ * Convert
+ *
+ */
+
+function convert($video, $path, $convertDir) {
+
+	$fichier = explode(".", $video); 
+
+	if (is_file($path . $video)){
+		shell_exec("ffmpeg -i " . $path . $video . " -c:v libx264 -c:a libfaac -b:a 192k " . $convertDir . $fichier[0] . ".mp4");
+	}
+	if (is_file($convertDir . $fichier[0] . ".mp4")) {
+		echo '<video class="video" type="video/mp4" src="files/'.$convertDir . $fichier[0].'.mp4" controls></video>';
+	}
 }

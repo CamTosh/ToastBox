@@ -16,17 +16,23 @@
 							<option value="3">divx</option>
 						</select>
 						<button class="btn btn--fn" type="submit" name="Submit">Submit</button> 
+						<button class="btn btn--positive" name="Convert">Convert video</button>
 						<button class="btn btn--negative" name="Delete">Delete File</button> 
 				</form>
 				'.download($video).'
 			</div>';
 
 		if (isset($_POST['Delete'])) { 
-			unlink('files/'.$video.'');
+			unlink($path.$video);
 			header("Location: index.php");
 		}
+		
 		desc($video);
 
+		if (isset($_POST['Convert'])) { 
+			convert($video, $path, $convertDir);
+		}
+		
 		if( empty($_POST['choixPlayer'])) {
 			echo html($video);
 		}

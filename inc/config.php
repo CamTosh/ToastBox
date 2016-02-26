@@ -9,3 +9,4 @@ $subtitles_type = array('srt');
 /*----------  Dossier à scan  ----------*/
 
 $path = 'files/';
+$convertDir = "files/convert/"; 
