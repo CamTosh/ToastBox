@@ -16,7 +16,7 @@ Chrome a bloqué les players comme Silverlight, VLC ou encore Divx en septembre 
 
 ## la page de lecture vidéo
 
-![2](demo/2.png "la page de lecture vidéo")
+![2](demo/player.png "la page de lecture vidéo")
 
 
 ## Features
