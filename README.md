@@ -33,10 +33,13 @@ Chrome a bloqué les players comme Silverlight, VLC ou encore Divx en septembre 
 * Lire les vidéos depuis son navigateur 
 * Pouvoir télécharger le fichier
 * Pouvoir supprimer le fichier
+* Pouvoir convertir une vidéo au format mp4 (codec audio : AAC, codec vidéo : h264) à l'aide de FFMPEG
 * Avoir différentes informations sur les films / séries 
 
 # Comment l'installer
 
-Il vous mettre le dossier dans votre serveur web. 
+Il vous mettre le dossier dans votre serveur web. Vous pouvez utiliser la fonction de conversion des vidéos en installant FFMPEG.
+
+Les chemins des dossiers des vidéos (vidéos et vidéos converties) peuvent être modifiés dans le inc/config.php.
 
 ToastBox ne nécessite d'aucune base de données.
