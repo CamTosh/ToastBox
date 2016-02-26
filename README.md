@@ -34,4 +34,4 @@ Il vous mettre le dossier dans votre serveur web. Vous pouvez utiliser la foncti
 
 Les chemins des dossiers des vidéos (vidéos et vidéos converties) peuvent être modifiés dans le inc/config.php.
 
-ToastBox ne nécessite d'aucune base de données.
+ToastBox ne nécessite aucune base de données.
