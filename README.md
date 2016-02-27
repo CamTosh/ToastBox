@@ -28,8 +28,32 @@ Chrome a bloqué les players comme Silverlight, VLC ou encore Divx en septembre 
 
 # Comment l'installer
 
-Il vous mettre le dossier dans votre serveur web. Vous pouvez utiliser la fonction de conversion des vidéos en installant FFMPEG.
+## Nginx par [Billred](https://mondedie.fr/profile.php?id=3963) :
 
-Les chemins des dossiers des vidéos (vidéos et vidéos converties) peuvent être modifiés dans le inc/config.php.
+```
+cd /var/www/
+```
 
-ToastBox ne nécessite aucune base de données.
+```
+git clone https://github.com/CamTosh/ToastBox.git
+```
+
+```
+chown -R www-data:www-data ToastBox/
+```
+
+Dans le fichier de configuration :
+
+```
+## début config ToastBox serveur ##
+
+        location ^~ /ToastBox {
+            root /var/www;
+            include /etc/nginx/conf.d/php.conf;
+            include /etc/nginx/conf.d/cache.conf;
+            satisfy any;
+            allow all;
+        }
+
+## fin config ToastBox serveur ##
+```
