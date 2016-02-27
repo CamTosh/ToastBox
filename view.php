@@ -19,7 +19,7 @@
 						<button class="btn btn--positive" name="Convert">Convert video</button>
 						<button class="btn btn--negative" name="Delete">Delete File</button> 
 				</form>
-				'.download($video).'
+				'.download($path, $video).'
 			</div>';
 
 		if (isset($_POST['Delete'])) { 

@@ -17,26 +17,20 @@ function scan($path, $video_type) {
 	   foreach(glob(''.$path.'/*.'.$ext.'') as $video) {
 
 	   		$file_name = basename($video);
-
-		    echo '<article class="item">';
-		    vignette($file_name);    
-			echo '</article>';
+			$slash = 1;
+		    vignette($file_name, $slash);    
 	    }
 	    foreach(glob(''.$path.'/*/*.'.$ext.'') as $video) {
 
 	   		$file_name = basename($video);
-		    
-		    echo '<article class="item">';
-		    vignette($file_name);    
-			echo '</article>';
+		    $slash = 2;
+		    vignette($file_name, $slash);    
 	    }
 	    foreach(glob(''.$path.'/*/*/*.'.$ext.'') as $video) {
 
 	   		$file_name = basename($video);
-		    
-		    echo '<article class="item">';
-		    vignette($file_name);    
-			echo '</article>';
+		    $slash = 3;
+		    vignette($file_name, $slash);    
 	    }
 	}
 	echo '</div>';
@@ -48,24 +42,17 @@ function scan($path, $video_type) {
  *
  */
 
-function vignette($file_name) {
+function vignette($file_name, $slash) {
 
-	$oIMDB = new IMDB($file_name);
-
-	if ($oIMDB->isReady) {
-	    echo '<a href="view.php?film='.urlencode($file_name).'"><img src="inc/imdb/'.$oIMDB->getPoster('small', true).'"></a><h4>About <a href="' . $oIMDB->getUrl() . '" target="_blank"><span class="rated">('.$oIMDB->getRating().'/10)</span></a></h4>'; 
-	    
-	    if ($oIMDB->getSeasons() != "n/A") {
-	  		echo '<p>'.$oIMDB->getSeasons().'</p>';
+		if ($slash == 1) {
+			echo '<li><a href="view.php?film='.urlencode($file_name).'"><h4><span class="icono-home" style="color:black;"></span> '.$file_name.'</h4></a></li><hr>';
 		}
-
-		echo '<p>'.$oIMDB->getPlot().'</p>';
-
-	} else {
-	  	echo '<p>Movie not found!</p>';
-	    echo '<a href="view.php?film='.urlencode($file_name).'"><img src="inc/imdb/posters/not-found.jpg">';
-		echo '<h4>'.$file_name.'</h4></a>'; 
-	}
+		if ($slash == 2) {
+			echo '<li><a href="view.php?film='.urlencode($file_name).'"><h4><span class="icono-folder" style="color:black;"></span> '.$file_name.'</h4></a></li><hr>';
+		}
+		if ($slash == 3) {
+			echo '<li><a href="view.php?film='.urlencode($file_name).'"><h4><span class="icono-folder" style="color:black;"></span><span class="icono-folder" style="color:black;"></span> '.$file_name.'</h4></a></li><hr>';
+		}
 }
 
 /**
@@ -143,9 +130,9 @@ function choice($choix, $video) {
  *
  */
 
-function size($video) {
+function size($path, $video) {
 
-    $bytes = sprintf('%u', filesize('files/'.$video.''));
+    $bytes = sprintf('%u', filesize(''.$path.'/'.$video.''));
 
     if ($bytes > 0) {
 
@@ -161,11 +148,11 @@ function size($video) {
 return $bytes;
 }
 
-function download($video) {
+function download($path, $video) {
 
-	$size = size($video);
+	$size = size($path, $video);
 
-	$link = '<a download href="files/'.$video.'" data-filesize="'.$size.'" class="download-button">'.$video.'</a>';
+	$link = '<a download href="'.$path.''.$video.'" data-filesize="'.$size.'" class="download-button">'.$video.'</a>';
 
 return $link;
 }

@@ -1,4 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Sacramento');
+
 /**
  *
  * main
@@ -17,7 +18,6 @@ body {
   background: whitesmoke;
 }
 
-a { color: #00f; }
 a:hover { text-decoration: none; }
 
 header {
@@ -55,40 +55,15 @@ main {
   min-width: 200px;
 }
 
-.sidebar {
-  width: 300px;
-  padding: 1em;
-  min-width: 100px;
-}
+/**
+ *
+ * icon
+ *
+ */
 
-/* Handle */
-.resize-handle.left, .resize-handle.right {
-  width: 4px;
-  background: #ccc;
-  cursor: ew-resize;
+i.home {
+  color: black;
 }
-
-.resize-handle.top, .resize-handle.bottom {
-  height: 4px;
-  background: #ccc;
-  cursor: ns-resize;
-}
-
-.resize-handle.left:hover, .resize-handle.right:hover,
-.resize-handle.top:hover, .resize-handle.bottom:hover {
-  background: #aaa;
-}
-
-html.handle-dragging * {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-html.handle-dragging.vertical * { cursor: ew-resize; }
-html.handle-dragging.horizontal * { cursor: ns-resize; }
-html.handle-dragging iframe { pointer-events: none; }
 
 /**
  *
@@ -198,6 +173,10 @@ img {
 
 .rated {
   color: #E4BB24;
+}
+
+hr {
+  color: #DADADA;
 }
 
 /**
