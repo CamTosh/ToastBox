@@ -15,7 +15,7 @@ function glob_recursive($pattern, $flags = 0, $subdir = ""){
     }
     foreach (glob(dirname($pattern).'/*', GLOB_ONLYDIR|GLOB_NOSORT) as $dir)
     {
-            $files = array_merge($files, glob_recursive($dir."/".basename($pattern), $flags,basename($dir)."/"));
+            $files = array_merge($files, glob_recursive($dir."/".basename($pattern), $flags,$subdir.basename($dir)."/"));
     }
 
     return $files;
