@@ -5,15 +5,14 @@
 	include 'inc/config.php';
 	
 	
-	/*
-	* Vérifier que le fichier demandé est bien dans le dossier des fichiers
-	* et qu'il n'y a pas de tentative de directory transversal
-	*/
-	if(isset($_GET['film'])){
+        /*
+        * Vérifier que le fichier demandé est bien dans le dossier des fichiers
+        * et qu'il n'y a pas de tentative de directory transversal
+        */
+        if(isset($_GET['film'])){
             $realFilesPath=realpath($path);
-            $realFilmPath= $path.$_GET['film'];
-            
-            if(strpos($realFilesPath,$realFilmPath) <> 0){
+            $realFilmPath= realpath($realFilesPath.'/'.$_GET['film']);
+            if((!$realFilmPath) || (strpos($realFilesPath,$realFilmPath) <> 0)){
                 die;
             }
         }
@@ -49,12 +48,10 @@
 		
 		if( empty($_POST['choixPlayer'])) {
 			echo html($video);
-		}
-
-		$choix = $_POST['choixPlayer'];
-
-		echo choice($choix, $video);
-			
+		}else{
+                    $choix = $_POST['choixPlayer'];
+                    echo choice($choix, $video);
+		}	
 	}
 
 	if (!isset($_GET['film']) && empty($_GET['film']) || strlen($_GET['film']) < 5) {
