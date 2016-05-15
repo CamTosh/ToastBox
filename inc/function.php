@@ -25,9 +25,9 @@ if ( ! function_exists('glob_recursive'))
 function scan($path, $video_type) {
 
     echo '<div class="item-grid">';
-    
-    foreach(glob_recursive(''.$path.'/*.'."{".implode(',',$video_type).'}') as $video) {
-        $file_name = basename($video);
+	$videos=glob_recursive($path.'*.'."{".implode(',',$video_type).'}', GLOB_BRACE);	
+	foreach( $videos as $video){ 
+	$file_name = basename($video);
 	$slash = 1;
         vignette($file_name, $slash);    
     }	
