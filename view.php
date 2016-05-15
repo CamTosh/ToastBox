@@ -11,7 +11,7 @@
 	*/
 	if(isset($_GET['film'])){
             $realFilesPath=realpath($path);
-            $realFilmPath= $path.$_GET['film']
+            $realFilmPath= $path.$_GET['film'];
             
             if(strpos($realFilesPath,$realFilmPath) <> 0){
                 die;
