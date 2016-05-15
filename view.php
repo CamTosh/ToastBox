@@ -1,8 +1,22 @@
 <?php
+
 	include 'inc/header.php';
 	include 'inc/function.php';
 	include 'inc/config.php';
-
+	
+	
+	/*
+	* Vérifier que le fichier demandé est bien dans le dossier des fichiers
+	* et qu'il n'y a pas de tentative de directory transversal
+	*/
+	if(isset($_GET['film'])){
+            $realFilesPath=realpath($path);
+            $realFilmPath= $path.$_GET['film']
+            
+            if(strpos($realFilesPath,$realFilmPath) <> 0){
+                die;
+            }
+        }
 	if (isset($_GET['film']) && !empty($_GET['film']) && strlen($_GET['film']) > 4) {
 
 		$video = urldecode($_GET['film']);
