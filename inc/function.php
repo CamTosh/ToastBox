@@ -7,35 +7,29 @@ require 'imdb/imdb.class.php';
  * Scan folder
  *
  */
+function glob_recursive($pattern, $flags = 0, $subdir = ""){
 
+    $files=array();
+    foreach(glob($pattern, $flags) as $f){
+            $files[]=$subdir.basename($f);
+    }
+    foreach (glob(dirname($pattern).'/*', GLOB_ONLYDIR|GLOB_NOSORT) as $dir)
+    {
+            $files = array_merge($files, glob_recursive($dir."/".basename($pattern), $flags,$subdir.basename($dir)."/"));
+    }
+
+    return $files;
+}
 function scan($path, $video_type) {
 
-	echo '<div class="item-grid">';
-
-	foreach($video_type as $ext) {
-		
-	   foreach(glob(''.$path.'/*.'.$ext.'') as $video) {
-
-	   		$file_name = basename($video);
-			$slash = 1;
-		    vignette($file_name, $slash);    
-	    }
-	    foreach(glob(''.$path.'/*/*.'.$ext.'') as $video) {
-
-	   		$file_name = basename($video);
-		    $slash = 2;
-		    vignette($file_name, $slash);    
-	    }
-	    foreach(glob(''.$path.'/*/*/*.'.$ext.'') as $video) {
-
-	   		$file_name = basename($video);
-		    $slash = 3;
-		    vignette($file_name, $slash);    
-	    }
-	}
-	echo '</div>';
+    echo '<div class="item-grid">';
+        $videos=glob_recursive($path.'*.'."{".implode(',',$video_type).'}', GLOB_BRACE);
+        foreach( $videos as $video){
+        $slash = 1;
+        vignette($video, $slash);    
+    }
+    echo '</div>';
 }
-
 /**
  *
  * Imdb
